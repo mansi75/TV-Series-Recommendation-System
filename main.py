@@ -5,7 +5,10 @@ import pickle
 # libraries for making count matrix and similarity matrix
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from rq import Queue
+from worker import conn
 
+q = Queue(connection=conn)
 
 
 def create_sim():
@@ -50,6 +53,9 @@ def rcmd(m):
             l.append(data['Series Title'][a])
         return l
 
+from utils import rcmd
+
+result = q.enqueue(rcmd, 'http://heroku.com')
 
 
 
