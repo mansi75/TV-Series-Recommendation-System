@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 def create_sim():
-    data = pd.read_csv('data.csv', nrows = 5700)
+    data = pd.read_csv('data.csv')
     # creating a count matrix
     cv = CountVectorizer()
     count_matrix = cv.fit_transform(data['Genre'].values.astype('U'))
