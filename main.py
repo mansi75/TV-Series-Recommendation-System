@@ -12,7 +12,7 @@ def create_sim():
     data = pd.read_csv('data.csv', nrows = 5700)
     # creating a count matrix
     cv = CountVectorizer()
-    count_matrix = cv.fit_transform(data['comb'].values.astype('U'))
+    count_matrix = cv.fit_transform(data['Genre'].values.astype('U'))
     # creating a similarity score matrix
     sim = cosine_similarity(count_matrix)
     return data,sim
