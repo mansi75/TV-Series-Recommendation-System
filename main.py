@@ -9,9 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 def create_sim():
-    data = pd.read_csv('data.csv', nrows = 6000)
+    data = pd.read_csv('data.csv', nrows = 5800)
     # creating a count matrix
-    cv = CountVectorizer(min_df = 0.2)
+    cv = CountVectorizer()
     count_matrix = cv.fit_transform(data['comb'].values.astype('U'))
     # creating a similarity score matrix
     sim = cosine_similarity(count_matrix)
