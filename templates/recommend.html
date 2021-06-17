@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+{% if t=='s' %}
+  <div class="movie" style="border-color: #181818;width: 60%;color: #A8A8A8;" >
+    <center><h2>Sorry! This Series is not in our database.</h2>
+    <h2>Please check if you spelled it correct.</h2>
+    <h2>Or try with another Series.</h2></center>
+  </div>
+  {% else %}
+  <div class="movie" style="border-color: #181818;width: 60%;;font-size:150px;color: white;" >
+    <h2>Recommended Series like {{movie}}.</h2>
+  </div>
+    
+    <ul class="list-group list-group-flush" style="color:black">
+      {% for m in r %}
+        <li class="list-group-item bg-dark"  style="color:white"><strong>{{m|capitalize}}</strong></li>
+      {% endfor %}
+    </ul>
+ 
+  {% endif %}
+
+{% endblock %}
