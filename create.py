@@ -9,13 +9,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 stopset = set(stopwords.words('english'))
 
-data = pd.read_csv('data.csv', nrows = 8000)
+data = pd.read_csv('data.csv')
 
-data['comb'] =  data['Genre'] + ' '+ data['Description'] 
+
 
 
 cv = CountVectorizer(min_df = 0.2,stop_words=stopset)
-count_matrix = cv.fit_transform(data['comb'].values.astype('U'))
+count_matrix = cv.fit_transform(data['Genre'].values.astype('U'))
 
 
 
